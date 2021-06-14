@@ -1,2 +1,2 @@
 # curriculum-contributers-object-oriented-programming
-For student contributions to the object oriented programming part of the first year curriculum work.
+For student contributions to our second semester section of the first year curriculum work.
