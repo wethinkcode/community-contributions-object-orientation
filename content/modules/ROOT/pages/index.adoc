@@ -1,0 +1,68 @@
+
+= COMMUNITY CONTRIBUTIONS
+
+{empty} +
+
+Students can contribute any content they deem valuable to the curriculum site. This content must be relative to the work and explain concepts needed in the curriculum projects. This content can be of any format be it an article, a link or a workshop video.
+
+{empty} +
+
+== Contribution Process
+
+. Fork the #community-contributions-object-orientation# repository
+. Create an asciidoc file under the #pages# folder under the project directory you want to contribute to
+. Write your content in this asciidoc file
+. Add any images to the #images# folder in the same directory
+. Add a reference to the file in the #nav.adoc# file under the same directory
+. Create a pull request to add your content to the main repository
+. Review any change requests and update your pull request
+. Your content can be merged upon approval by another student
+
+{empty} +
+
+== Antora
+
+The WeThinkCode curriculum site is built using a tool called #Antora#. Antora builds HTML and CSS files from asciidoc files. It is important to understand Antora and how it works to be able to contribute to the curriculum site effectively. 
+
+Most important to know is how Antora expects the directory to be structured and how Antora builds the navigation using the #nav.adoc# files. The reading section links to the Antora documentation describing these processes and their requirements.
+
+.icon:glasses[] Self Study
+****
+* https://docs.antora.org/antora/2.3/standard-directories/[Antora Standard File and Directory Set]
+* https://docs.antora.org/antora/2.3/navigation/[Antora Navigation Assembly]
+****
+
+{empty} +
+
+== Asciidoc
+
+Content for the WeThinkCode curriculum site is written in asciidoc format. Asciidoc files require at least a title and a body. Asciidoc also expects headings to be in order. It is important to understand asciidoc syntax to be able to write content effectively. The reading section refers to an asciidoc syntax cheatsheet that you can refer to when writing your documents.
+
+It is recommended to have an understanding of:
+
+* headers
+* blocks
+* text
+* macros
+* lists
+
+TIP: To enter an empty line use #$${empty} +$$#
+
+.icon:glasses[] Self Study
+****
+* https://powerman.name/doc/asciidoc[Asciidoc CheatSheet]
+****
+
+== GitHub
+
+If you are not sure how to fork a repository or create a pull request from a fork, below are some useful resources to guide you.
+
+.icon:glasses[] Self Study
+****
+* https://docs.github.com/en/github/getting-started-with-github/quickstart/fork-a-repo[Fork a Repo]
+* https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork[Create a Pull Request from a Fork]
+****
+
+
+
+
