@@ -1,0 +1,180 @@
+= WeThinkCode_ Curriculum Toolchain
+
+Content is authored using Asciidoc and published using Antora.
+
+== Pre-requisites
+
+In order to use the WTC Curriculum Toolchain, you need to install the following:
+
+* https://docs.docker.com/engine/install/[Docker]
+* https://docs.docker.com/compose/install/[Docker Compose]
+* https://www.gnu.org/software/make/[Make]. For Windows OS, https://docs.microsoft.com/en-us/windows/wsl/install-win10[WSL] 
+is recommended.
+* https://stedolan.github.io/jq/[jq]
+
+== Repository configuration
+
+Clone the customised ui repo and setup a remote for the Antora UI Default repo.
+Then checkout the antora master branch to local branch `antora`.
+
+[source]
+---
+$ git clone git@github.com:wethinkcode/antora-docs-ui.git
+$ cd antora-docs-ui
+$ git remote add antora https://gitlab.com/antora/antora-ui-default.git
+---
+
+== Merge changes from Antora UI Default
+
+To merge the latest upstream changes from the Antora UI Default repo.
+
+[source]
+---
+$ git checkout -b antora antora/master
+$ git pull
+$ git checkout main
+$ git merge antora
+---
+
+== Git Credentials
+Set the environment variable GIT_CREDENTIALS so that Antora can clone content modules.
+
+```
+$ export GIT_CREDENTIALS={some git credential token or username:password}@github.com
+```
+
+This environment variable is exposed to the docker container running Antora for the builds.
+See `docker-compose.yml` for details.
+
+For alternatives on settting up git credentials with Antora, 
+see https://docs.antora.org/antora/2.3/playbook/private-repository-auth/.
+
+== Antora Playbook
+
+Clone git@github.com:wethinkcode/community-contributions-object-orientation.git to edit the playbook.
+
+== Troubleshooting the playbook
+
+Run `make shell` to shell into the docker container that is running antora.
+
+== Adding a module to the playbook
+
+Edit `antora-playbook.yml` and add a section to the `content.sources` section.
+See https://docs.antora.org/antora/2.3/playbook/configure-content-sources/ for more info.
+
+Here is an example:
+
+[source,yaml]
+---
+content:
+  sources:
+  - url: https://github.com/wethinkcode/curriculum-module-x.git 
+    branches: [v2.0, v1.0]
+    start_path: docs
+    edit_url: false
+---
+
+
+== Curriculum Author Guide
+
+All content is authored using https://docs.asciidoctor.org/asciidoc/latest/[Asciidoc] and 
+published using https://docs.antora.org/antora/2.3/[Antora].
+
+In Antora, a _component_ consists of one or more _modules_. Each module consists of pages, images, examples, etc.
+
+=== Installing dependencies
+
+Run `make install` to install supported asciidoc extensions.
+
+=== Build and preview the content 
+
+Run `make preview` and open http://localhost:8051/ to view the component on your local machine.
+
+This first runs `make clean`, then `make build` and lastly, `make preview`.
+The `clean` target deletes the `build/site` and `build/cache` directories for a clean build.
+The `build` target builds a local copy of the component. The output is placed in the `build/site` directory.
+The `preview` target serves `build/site` on http://localhost:8051/
+
+=== Watching for file changes
+
+In a terminal, run `make preview` to start up the local HTTP server for the component.
+Then, in another terminal, run `make watch`. This will watch for local file changes in the content directories and rebuild the local site.
+Refresh the page in the browser to see the changes.
+
+=== Updating the UI
+
+Run `make ui` to pull the latest ui package.
+
+=== Content Tips
+
+==== Font-Awesome
+
+Support for inline icons using Font-Awesome is enabled. See https://asciidoctor.org/docs/user-manual/#inline-icons
+
+==== Diagram Markup
+
+Support via https://kroki.io/ is enabled. Also see https://github.com/Mogztter/asciidoctor-kroki.
+
+For example:
+
+```
+[plantuml]
+----
+alice -> bob
+bob -> alice
+----
+```
+
+== Release Manager Guide
+
+=== Installing dependencies
+
+Run `make install` to install supported asciidoc extensions.
+
+=== Creating the release outline
+
+In the `release-outline` folder, create two documents using the release number:
+
+* nav-1.adoc
+* release-1.txt
+
+In release.txt, list the paths to the pages or modules you wish to release from the modules directory under the content directory (make sure there is an empty line at the end of the file):
+
+----
+ROOT
+001-fizzbuzz
+002-hangman
+
+----
+
+In nav.adoc, create the full navigation as you would like it to appear for that release:
+
+----
+* xref:release-notes.adoc[Release Notes]
+* xref:index.adoc[Overview]
+* xref:setup.adoc[Development Setup]
+* xref:intro-to-java.adoc[Introduction to Java]
+* xref:unit-testing-with-java.adoc[Unit Testing with Java]
+** xref:exercise-fizzbuzz.adoc[Exercise: FizzBuzz icon:code[] ]
+----
+
+=== Releasing content
+
+Run `make release` with the release number to clean the release folder and copy over the appropriate navigation and content (e.g. `make release 5`).
+
+=== Build and preview the content 
+
+Run `make preview PLAYBOOK=release` and open http://localhost:8051/ to view the component on your local machine.
+
+This first runs `make clean`, then `make build` and lastly, `make preview`.
+The `clean` target deletes the `build/site` and `build/cache` directories for a clean build.
+The `build` target builds a local copy of the component. The output is placed in the `build/site` directory.
+The `preview` target serves `build/site` on http://localhost:8051/
+
+=== Updating the UI
+
+Run `make ui` to pull the latest ui package.
+
+=== For any other information
+
+Visit http://localhost:8051/ by running make preview.
