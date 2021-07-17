@@ -1,8 +1,8 @@
 = WeThinkCode_ Curriculum Toolchain
 
-Content is authored using Asciidoc and published using Antora.
+Content is authored using AsciiDoc and published using Antora.
 
-== Pre-requisites
+== Prerequisites
 
 In order to use the WTC Curriculum Toolchain, you need to install the following:
 
@@ -77,14 +77,14 @@ content:
 
 == Curriculum Author Guide
 
-All content is authored using https://docs.asciidoctor.org/asciidoc/latest/[Asciidoc] and 
+All content is authored using https://docs.asciidoctor.org/asciidoc/latest/[AsciiDoc] and 
 published using https://docs.antora.org/antora/2.3/[Antora].
 
 In Antora, a _component_ consists of one or more _modules_. Each module consists of pages, images, examples, etc.
 
 === Installing dependencies
 
-Run `make install` to install supported asciidoc extensions.
+Run `make install` to install supported AsciiDoc extensions.
 
 === Build and preview the content 
 
@@ -129,7 +129,7 @@ bob -> alice
 
 === Installing dependencies
 
-Run `make install` to install supported asciidoc extensions.
+Run `make install` to install supported AsciiDoc extensions.
 
 === Creating the release outline
 
