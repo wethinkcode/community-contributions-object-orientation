@@ -2,3 +2,9 @@ name: community-contributions-object-orientation
 title: 102 Community Contributions
 version: '1.0'
 nav:
+  - modules/001-fizzbuzz/nav.adoc
+  - modules/002-hangman/nav.adoc
+  - modules/003-mastermind/nav.adoc
+  - modules/004-walk-through-example/nav.adoc
+  - modules/005-toy-robot/nav.adoc
+  - modules/006-robot-worlds/nav.adoc
