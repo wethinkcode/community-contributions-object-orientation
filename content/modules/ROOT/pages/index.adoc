@@ -10,8 +10,8 @@ Students can contribute any content they deem valuable to the curriculum site. T
 == Contribution Process
 
 . Fork the #community-contributions-object-orientation# repository
-. Create an asciidoc file under the #pages# folder under the project directory you want to contribute to
-. Write your content in this asciidoc file
+. Create an AsciiDoc file under the #pages# folder under the project directory you want to contribute to
+. Write your content in this AsciiDoc file
 . Add any images to the #images# folder in the same directory
 . Add a reference to the file in the #nav.adoc# file under the same directory
 . Create a pull request to add your content to the main repository
@@ -22,7 +22,7 @@ Students can contribute any content they deem valuable to the curriculum site. T
 
 == Antora
 
-The WeThinkCode curriculum site is built using a tool called #Antora#. Antora builds HTML and CSS files from asciidoc files. It is important to understand Antora and how it works to be able to contribute to the curriculum site effectively. 
+The WeThinkCode curriculum site is built using a tool called #Antora#. Antora builds HTML and CSS files from AsciiDoc files. It is important to understand Antora and how it works to be able to contribute to the curriculum site effectively. 
 
 Most important to know is how Antora expects the directory to be structured and how Antora builds the navigation using the #nav.adoc# files. The reading section links to the Antora documentation describing these processes and their requirements.
 
@@ -34,9 +34,9 @@ Most important to know is how Antora expects the directory to be structured and 
 
 {empty} +
 
-== Asciidoc
+== AsciiDoc
 
-Content for the WeThinkCode curriculum site is written in asciidoc format. Asciidoc files require at least a title and a body. Asciidoc also expects headings to be in order. It is important to understand asciidoc syntax to be able to write content effectively. The reading section refers to an asciidoc syntax cheatsheet that you can refer to when writing your documents.
+Content for the WeThinkCode curriculum site is written in AsciiDoc format. AsciiDoc files require at least a title and a body. AsciiDoc also expects headings to be in order. It is important to understand AsciiDoc syntax to be able to write content effectively. The reading section refers to an AsciiDoc syntax cheat sheet that you can refer to when writing your documents.
 
 It is recommended to have an understanding of:
 
@@ -50,7 +50,7 @@ TIP: To enter an empty line use #$${empty} +$$#
 
 .icon:glasses[] Self Study
 ****
-* https://powerman.name/doc/asciidoc[Asciidoc CheatSheet]
+* https://powerman.name/doc/asciidoc[AsciiDoc Cheat Sheet]
 ****
 
 == GitHub
