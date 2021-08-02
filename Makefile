@@ -23,7 +23,7 @@ build: PLAYBOOK ?= content
 build: clean 
 	docker-compose run -u $$(id -u) antora antora generate antora-playbook.$(PLAYBOOK).yml
 
-# preview: @ Serves documentation output (on port 8051)
+# preview: @ Serves content on port 8081
 preview: PLAYBOOK ?= content
 preview: build
 	docker-compose run --service-ports antora http-server build/site -c-1
@@ -39,17 +39,17 @@ shell: CMD ?= /bin/sh
 shell:
 	docker-compose run -u $$(id -u) antora $(CMD)
 
-# shell: @ Pull the latest ui-bundle.zip
-prompt_for_token = echo Enter Github access token:; read GITHUB_AUTH_TOKEN
+# ui: @ Install the latest UI theme bundle
+prompt_for_token = echo Enter Github auth token:; read GITHUB_AUTH_TOKEN
 ui: GITHUB_AUTH_TOKEN ?= 
 ui:
 	$(if $(GITHUB_AUTH_TOKEN),GITHUB_AUTH_TOKEN=$(GITHUB_AUTH_TOKEN),$(prompt_for_token))
-	CURL="curl -H 'Authorization: token $$GITHUB_AUTH_TOKEN' \
+	CURL="curl -v -H 'Authorization: token $$GITHUB_AUTH_TOKEN' \
 	      https://api.github.com/repos/wethinkcode/antora-docs-ui/releases"; \
 	ASSET_ID=$$(eval "$$CURL/latest" | jq .assets[0].id); \
-	eval "$$CURL/assets/$$ASSET_ID -o tmp/ui-bundle.zip -LJH 'Accept: application/octet-stream'"
+	eval "$$CURL/assets/$$ASSET_ID -o tmp/ui-bundle.zip -LJH 'Accept: application/octet-stream'"j
 
-# shell: @ Copy the folders in the specified release outline from content to release (e.g. make release 5)
+# release: @ Copy the folders in the specified release outline from content to release (e.g. make release 5)
 .PHONY: release
 release: RELEASE ?= $(ARGS)
 release: DIRECTORY ?= $(shell pwd)
@@ -62,3 +62,12 @@ release:
 		cp -r --parents $$module $(DIRECTORY)/release/modules ; \
 	done < $(DIRECTORY)/release-outline/release-$(RELEASE).txt
 	cp $(DIRECTORY)/release-outline/nav-$(RELEASE).adoc $(DIRECTORY)/release/nav.adoc
+
+# tools: @ Update the tools from the curriculum-tools repository
+.PHONY: tools
+tools: 
+	git remote -v | grep -w tools && \
+	git remote set-url tools git@github.com:wethinkcode/curriculum-tools.git || \
+	git remote add tools git@github.com:wethinkcode/curriculum-tools.git
+	git pull tools main --allow-unrelated-histories
+
