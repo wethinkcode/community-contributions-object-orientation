@@ -1,20 +1,16 @@
-= WeThinkCode_ Curriculum Toolchain
-
-Content is authored using AsciiDoc and published using Antora.
-
 == Prerequisites
 
 In order to use the WTC Curriculum Toolchain, you need to install the following:
 
 * https://docs.docker.com/engine/install/[Docker]
 * https://docs.docker.com/compose/install/[Docker Compose]
-* https://www.gnu.org/software/make/[Make]. For Windows OS, https://docs.microsoft.com/en-us/windows/wsl/install-win10[WSL] 
+* https://www.gnu.org/software/make/[Make]. For Windows OS, https://docs.microsoft.com/en-us/windows/wsl/install-win10[WSL]
 is recommended.
 * https://stedolan.github.io/jq/[jq]
 
 == Contributor's Guide
 
-All content is authored using https://docs.asciidoctor.org/asciidoc/latest/[AsciiDoc] and 
+All content is authored using https://docs.asciidoctor.org/asciidoc/latest/[AsciiDoc] and
 published using https://docs.antora.org/antora/2.3/[Antora].
 
 In Antora, a _component_ consists of one or more _modules_. Each module consists of pages, images, examples, etc.
@@ -25,11 +21,11 @@ IMPORTANT: A breakdown of the contribution process and helpful links are given o
 
 Run `make install` to install supported AsciiDoc extensions.
 
-=== Build and preview the content 
+=== Build and preview the content
 
 Run `make preview` and open http://localhost:8051/ to view the component on your local machine.
 
-This first runs `make clean`, then `make build` and lastly, `make preview`.
+This first runs `make clean`, then `make build` then `make preview`.
 The `clean` target deletes the `build/site` and `build/cache` directories for a clean build.
 The `build` target builds a local copy of the component. The output is placed in the `build/site` directory.
 The `preview` target serves `build/site` on http://localhost:8051/
@@ -42,7 +38,13 @@ Refresh the page in the browser to see the changes.
 
 === Updating the UI
 
-Run `make ui` to pull the latest ui package.
+Run `make ui` to pull the latest UI package.
+
+=== Updating the tools
+
+Run `make tools` to pull the latest changes from the `curriculum-tools` repository.
+
+If you come across any merge conflicts, resolve them in VS Code and commit when you are done.
 
 === Content Tips
 
@@ -63,6 +65,9 @@ alice -> bob
 bob -> alice
 ----
 ```
+
+
+
 
 == Release Manager Guide
 
@@ -101,15 +106,21 @@ In nav.adoc, create the full navigation as you would like it to appear for that 
 
 Run `make release` with the release number to clean the release folder and copy over the appropriate navigation and content (e.g. `make release 5`).
 
-=== Build and preview the content 
+=== Build and preview the content
 
 Run `make preview PLAYBOOK=release` and open http://localhost:8051/ to view the component on your local machine.
 
-This first runs `make clean`, then `make build` and lastly, `make preview`.
+This first runs `make clean`, then `make build` then `make preview`.
 The `clean` target deletes the `build/site` and `build/cache` directories for a clean build.
 The `build` target builds a local copy of the component. The output is placed in the `build/site` directory.
 The `preview` target serves `build/site` on http://localhost:8051/
 
 === Updating the UI
 
-Run `make ui` to pull the latest ui package.
+Run `make ui` to pull the latest UI package.
+
+=== Updating the tools
+
+Run `make tools` to pull the latest changes from the `curriculum-tools` repository.
+
+If you come across any merge conflicts, resolve them in VS Code and commit when you are done.
