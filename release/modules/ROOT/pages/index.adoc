@@ -1,0 +1,81 @@
+
+= COMMUNITY CONTRIBUTIONS
+
+{empty} +
+
+Students can contribute any content they deem valuable to the curriculum site. This content must be relative to the work and explain concepts needed in the curriculum projects. This content can be of any format be it an article, a link or a workshop video.
+
+{empty} +
+
+== Contribution Process
+
+. Fork the https://github.com/wethinkcode/community-contributions-object-orientation[community-contributions-object-orientation] repository
+. Clone the forked repository to a local folder on your machine
+. Read the #Contributor's Guide# in the repository #ReadMe# to familiarize yourself with the necessary make commands
+. Run #make install# in the terminal to install dependencies
+. In the repository, navigate to #content/modules#
+. From there, navigate to the project folder you wish to contribute to
+. From there, navigate to the #pages# folder (if there is no #pages# folder, create one)
+. Create an AsciiDoc file (e.g. #content.adoc#)
+. Write your content in this AsciiDoc file using <<AsciiDoc, AsciiDoc syntax>>
+.. Remember that Antora requires each file to have at least a top-level heading and a paragraph with a space in between
+. Add a reference to your content file in the #nav.adoc# file under the same directory
+.. Example reference: `#$$** xref:content.adoc[My Content Title]$$#`
+.. Refer to https://docs.antora.org/antora/2.0/asciidoc/page-to-page-xref/[Page Cross References] for information on `xref`
+. Run #make preview# in the terminal and open http://localhost:8051/community-contributions-object-orientation/1.0/ in your browser to view your changes
+. Push your changes to your forked repository
+. From your forked repository, create a pull request to add your content to the main repository
+. Review any change requests and update your pull request
+. Your content can be merged upon approval by another student
+
+{empty} +
+
+== Antora
+
+The WeThinkCode curriculum site is built using a tool called #Antora#. Antora builds HTML and CSS files from AsciiDoc files. It is important to understand Antora and how it works to be able to contribute to the curriculum site effectively. 
+
+Most important to know is how Antora expects the directory to be structured and how Antora builds the navigation using the #nav.adoc# files. The reading section links to the Antora documentation describing these processes and their requirements.
+
+.icon:glasses[] Self Study
+****
+* https://docs.antora.org/antora/2.3/standard-directories/[Antora Standard File and Directory Set]
+* https://docs.antora.org/antora/2.3/navigation/[Antora Navigation Assembly]
+****
+
+{empty} +
+
+[[AsciiDoc]]
+== AsciiDoc
+
+Content for the WeThinkCode curriculum site is written in AsciiDoc format. AsciiDoc files require at least a title and a body. AsciiDoc also expects headings to be in order. It is important to understand AsciiDoc syntax to be able to write content effectively. The reading section refers to the AsciiDoc documentation that you can refer to when writing your documents.
+
+It is recommended to have an understanding of:
+
+* document headers
+* sections
+* blocks
+* text formatting and punctuation
+* lists
+* links
+* images
+
+TIP: To enter an empty line use #$${empty} +$$#
+
+.icon:glasses[] Self Study
+****
+* https://docs.asciidoctor.org/asciidoc/latest/[AsciiDoc Documentation]
+****
+
+== GitHub
+
+If you are not sure how to fork a repository or create a pull request from a fork, below are some useful resources to guide you.
+
+.icon:glasses[] Self Study
+****
+* https://docs.github.com/en/github/getting-started-with-github/quickstart/fork-a-repo[Fork a Repo]
+* https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork[Create a Pull Request from a Fork]
+****
+
+
+
+
