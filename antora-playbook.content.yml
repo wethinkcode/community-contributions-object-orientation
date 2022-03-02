@@ -1,6 +1,6 @@
 site:
   title: WTC Curriculum
-  url: http://localhost:8081
+  url: http://localhost:8051
   start_page: overview::index.adoc
   robots: disallow
 content:
