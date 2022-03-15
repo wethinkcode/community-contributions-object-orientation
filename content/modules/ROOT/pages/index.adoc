@@ -22,7 +22,7 @@ Students can contribute any content they deem valuable to the curriculum site. T
 . Add a reference to your content file in the #nav.adoc# file under the same directory
 .. Example reference: `#$$** xref:content.adoc[My Content Title]$$#`
 .. Refer to https://docs.antora.org/antora/2.0/asciidoc/page-to-page-xref/[Page Cross References] for information on `xref`
-. Run #make preview# in the terminal and open http://localhost:8051/community-contributions-object-orientation/1.0/ in your browser to view your changes
+. Run #make preview# in the terminal and open http://localhost:8081/community-contributions-object-orientation/1.0/ in your browser to view your changes
 . Push your changes to your forked repository
 . From your forked repository, create a pull request to add your content to the main repository
 . Review any change requests and update your pull request

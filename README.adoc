@@ -23,12 +23,12 @@ Run `make install` to install supported AsciiDoc extensions.
 
 === Build and preview the content
 
-Run `make preview` and open http://localhost:8051/ to view the component on your local machine.
+Run `make preview` and open http://localhost:8081/ to view the component on your local machine.
 
 This first runs `make clean`, then `make build` then `make preview`.
 The `clean` target deletes the `build/site` and `build/cache` directories for a clean build.
 The `build` target builds a local copy of the component. The output is placed in the `build/site` directory.
-The `preview` target serves `build/site` on http://localhost:8051/
+The `preview` target serves `build/site` on http://localhost:8081/
 
 === Watching for file changes
 
@@ -108,12 +108,12 @@ Run `make release` with the release number to clean the release folder and copy 
 
 === Build and preview the content
 
-Run `make preview PLAYBOOK=release` and open http://localhost:8051/ to view the component on your local machine.
+Run `make preview PLAYBOOK=release` and open http://localhost:8081/ to view the component on your local machine.
 
 This first runs `make clean`, then `make build` then `make preview`.
 The `clean` target deletes the `build/site` and `build/cache` directories for a clean build.
 The `build` target builds a local copy of the component. The output is placed in the `build/site` directory.
-The `preview` target serves `build/site` on http://localhost:8051/
+The `preview` target serves `build/site` on http://localhost:8081/
 
 === Updating the UI
 
